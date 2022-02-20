@@ -1,61 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
+
 *{
-	padding:0;
-	margin:0;
-	box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
 body{
-	font-family: 'Gochi Hand',cursive;
-	background:rgb(40,40,40);
+    font-family: 'Gochi Hand', cursive;
+    background: linear-gradient(to left, 
+    rgb(40, 40, 40),
+    rgb(40, 40, 40))
+    
 }
 header{
-	padding:30px;
-	background: url(womanGuitar.jpg);
-	height: 120vh;
+    overflow: hidden;
+
+    padding: 30px;
+    background: url(womanGuitar.jpg);
+    height: 90vh;
     width: 100vw;
     border: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
+    clip-path: polygon(2% 11%, 3% 7%, 96% 16%, 96% 27%, 91% 79%, 10% 93%, 8% 89%);
     position: relative;
-    clip-path: polygon(2% 11%, 3% 7%, 96% 1%, 96% 27%, 91% 79%, 10% 93%, 8% 89%);
 }
+
 .container{
-	position:relative;
-	color:black;
-	font-size:22px;
-	justify-content:center;
-	align-items:center;
-	top:70%;
-
-	
-
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .container h1{
-	margin-bottom:50px;
-	letter-spacing:2px;
-	text-align:center;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-align: center;
 }
 form{
-	position:relative;\
-	left:30%;
-	display:flex;
-	width:500px
-
+    position: relative;
+    display: flex;
+    width: 500px;
 }
 input{
-	width:100%;
-	max-width;100%;
-	height:45px;
-	border-radius:50px;
-	padding:15px 30px;
-	border:none;
-	outline:none;
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
 }
 button{
     width: 100px;
     max-width: 100%;
-    background: black;
+    /* height: 40px; */
+    background: #9E2092;
     color: white;
     border-radius: 50px;
     border: none;
@@ -125,7 +131,7 @@ li{
     left: -20px;
     bottom: -4px;
     height: 3px;
-    background: black;
+    background: rgb(12, 147, 100);
     display: inline-block;
 }
 .song-list li div{
@@ -157,7 +163,6 @@ li{
     width: 100px;
     text-transform: capitalize;
 }
-
 
 
 @media only screen and (max-width: 800px) {
@@ -192,6 +197,3 @@ li{
    
     
   }
-#search{
-	margin-left:20%;
-}
