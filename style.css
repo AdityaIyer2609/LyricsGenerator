@@ -19,7 +19,7 @@ header{
 
     padding: 30px;
     background: url(womanGuitar.jpg);
-    height: 90vh;
+    height: 130vh;
     width: 100vw;
     border: none;
     background-repeat: no-repeat;
@@ -37,11 +37,6 @@ header{
 	align-items:center;
 	top:70%;
 
-}
-.container h1{
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-    text-align: center;
 }
 form{
     position: relative;
