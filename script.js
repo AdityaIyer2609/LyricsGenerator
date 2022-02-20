@@ -1,31 +1,47 @@
-const form=document.getElementById('form');
-const search=document.getElementById('search');
-const result=document.getElementById('result');
+const form = document.getElementById('form')
+const search = document.getElementById('search')
+const result = document.getElementById('result')
+gapi.load("client", loadClient);
+ 
+function loadClient() {
+    gapi.client.setApiKey("AIzaSyCXd8-DzhjLSwKvOTPJzFJkZHiKvsPNAJs");
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+                function(err) { console.error("Error loading GAPI client for API", err); });
+};
+// Make sure the client is loaded before calling this method.
 
-const apiUrl='https://api.lyrics.ovh';
 
-//adding event listeners
+/// api URL ///
+const apiURL = 'https://api.lyrics.ovh';
 
-form.addEventListener('submit',e=>{
-	e.preventDefault();
-	searchValue=search.value.trim();
-	
-	//checking searchValue
-	if(!searchValue){
-		alert("Please enter song or artist");
-	}
-	else{
-		searchSong(searchValue)
-		alert(searchValue)
-	}
+form.addEventListener('submit', e=> {
+    e.preventDefault();
+    searchValue = search.value.trim();
+
+    if(!searchValue){
+        alert("There is nothing to search")
+    }
+    else{ 
+        searchSong(searchValue)
+    }
 })
-//searching songs in api
-asynch function searchsong(searchValue){
-	const searchResult=await fetch(`${apiURL}/suggest/${searchValue}`)
-	const data = await searchResult.json();
-	showData(data);
+
+// Key up event listner
+const searchOnKeyUp =() =>{
+    searchValue = search.value.trim();
+    searchSong(searchValue)
 }
-//showData
+//search song 
+async function searchSong(searchValue){
+    const searchResult = await fetch(`${apiURL}/suggest/${searchValue}`)
+    const data = await searchResult.json();
+
+    // console.log(finaldata)
+    showData(data);
+}
+
+//display final result in DO
 function showData(data){
   
     result.innerHTML = `
@@ -45,7 +61,10 @@ function showData(data){
   document.getElementById('video').innerHTML = ''
 
 
-}	
+}
+
+
+
 
 //event listener in get lyrics button
 result.addEventListener('click', e=>{
@@ -89,9 +108,14 @@ result.addEventListener('click', e=>{
     
 })
 
-
-
-
+/*************************************************
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ************************************************
+ */
 const execute = (artist, songTitle)=>{
     var pageToken = '';
 
